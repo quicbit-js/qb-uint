@@ -1,0 +1,20 @@
+{
+  "name": "mfx-uint",
+  "version": "0.0.1",
+  "description": "Variable unsigned integer encodings for javascript",
+  "devDependencies": {
+    "tape": "^4.6.3",
+    "test-kit": "^1.1.1"
+  },
+  "scripts": {
+    "test": "tap --coverage-report=html test.js"
+  },
+  "keywords": [
+    "javascript",
+    "variable",
+    "unsigned",
+    "integer"
+  ],
+  "author": "Matthew Voss",
+  "license": "ISC"
+}
