@@ -2,12 +2,6 @@ var test = require('test-kit').tape()
 
 var uint = require('.')
 
-//> return function(){fn(arg1, arg2...)}
-function asFunc(obj, fn, arg1, arg2) {
-    var args = Array.prototype.slice.call(arguments, 2)
-    return function() {fn.apply(obj, args)}
-}
-
 test('uint: throws', function(t) {
     var buf = new Uint8Array(5)
     t.tableAssert(
