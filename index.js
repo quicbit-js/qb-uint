@@ -34,18 +34,18 @@ function size (v) {
 }
 
 // write an integer to the given buffer encoded with 7-bit chaining
-function write (v, buffer, off) {
+function write (dst, off, v) {
   if (v > 0x7FFFFFFF) {  // max positive value for signed int
     throw Error('number too large for 32 bit conversion')   // todo: handle up to Number.MAX_SAFE_INTEGER
   } else {
     var n = size(v)
-    buffer[off + n - 1] = v & 0x7F          // least-significant 7 bits (no chain)
+    dst[off + n - 1] = v & 0x7F          // least-significant 7 bits (no chain)
     for (var i = n - 2; i >= 0; i--) {
       v >>= 7
-      buffer[off + i] = (v & 0x7F) | 0x80 // next 7 bits with chain flag
+      dst[off + i] = (v & 0x7F) | 0x80 // next 7 bits with chain flag
     }
   }
-  return n
+  return n + off
 }
 
 // Read an integer value from a buffer at the given offset
@@ -53,13 +53,13 @@ function write (v, buffer, off) {
 // If h is given (a holder array), then write the integer value and the
 // new buffer offset into the array at h[0] and h[1].
 // If h is not given, just return the integer value.
-function read (buf, off, h) {
+function read (src, off, h) {
   var noff = off
-  var p = buf[noff++]
+  var p = src[noff++]
   var v = p & 0x7F        // put low-order 7 bits
   while (p & 0x80) {       // check hi bit
     v <<= 7
-    p = buf[noff++]
+    p = src[noff++]
     v |= (p & 0x7F)     // put low-order 7 bits
   }
   if (h) {
