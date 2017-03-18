@@ -1,10 +1,10 @@
 {
   "name": "qb-uint",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Variable unsigned integer encodings for javascript",
   "devDependencies": {
     "tape": "^4.6.3",
-    "test-kit": "^1.1.1"
+    "test-kit": "^2.1.3"
   },
   "scripts": {
     "test": "tap --coverage-report=html test.js"
