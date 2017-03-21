@@ -1,6 +1,6 @@
 {
   "name": "qb-uint",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Variable unsigned integer encodings for javascript",
   "homepage": "https://github.com/quicbit-js/qb-uint",
   "url": "https://github.com/quicbit-js/qb-uint/issues",
@@ -8,7 +8,7 @@
   "repository": "quicbit-js/qb-uint",
   "devDependencies": {
     "tape": "^4.6.3",
-    "test-kit": "^2.3.0"
+    "test-kit": "^2.3.1"
   },
   "scripts": {
     "test": "tap --coverage-report=html test.js"
